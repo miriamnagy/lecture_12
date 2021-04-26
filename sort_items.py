@@ -31,6 +31,18 @@ def read_rows(file_name, row_number):
     :param row_number: (int), number of selected row
     :return: (list, int),
     """
+    file_path = os.path.join(cwd_path, file_name)
+    with open(file_path, 'r') as csv_file:
+        reader = csv.reader(csv_file, delimiter=',')
+        data = []
+        i = 0
+        for row in reader:
+            if i == row_number:
+                for item in row:
+                    data.append(int(item))
+            i = i + 1
+    return data
+
 
 
 
@@ -79,8 +91,10 @@ def main():
     # Ukol: Selection Sort - se smerem razeni
     sorted_numbers = selection_sort(data, 'descending')
     print(sorted_numbers)
-    
 
+    random_number = random.randint(0,2)
+    row = read_rows('numbers_two.csv', random_number)
+    print(row)
     # Ukol: Bubble Sort
 
 
