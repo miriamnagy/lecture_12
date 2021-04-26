@@ -78,6 +78,16 @@ def bubble_sort(number_array):
        :param number_array: (list,int), list with numeric array
        :return: (list, int), sorted numeric array
     """
+    for number in range(len(number_array)-1):
+        for i in range(len(number_array)-1):
+            if number_array[i] > number_array[i+1]:
+                number_array[i], number_array[i+1] = number_array[i+1], number_array[i]
+
+    return number_array
+
+
+
+
 
 
 def main():
@@ -96,7 +106,9 @@ def main():
     row = read_rows('numbers_two.csv', random_number)
     print(row)
     # Ukol: Bubble Sort
-
+    bubble = bubble_sort(row)
+    print("Bubble sort ")
+    print(bubble)
 
     # příklad výpisu hodnot seřazené řady
     # print ("Seřazená řada čísel je:")
